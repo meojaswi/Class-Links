@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class Links</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #121212; /* Dark background */
+      color: #e0e0e0; /* Light text color */
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #1e1e1e; /* Darker header */
+      color: #ffffff;
+      padding: 10px 0;
+      text-align: center;
+      border-bottom: 1px solid #444;
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    .copy-button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      font-size: 14px;
+      border-radius: 5px;
+    }
+
+    .copy-button:hover {
+      background-color: #45a049;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th,
+    td {
+      padding: 10px;
+      text-align: left;
+      border: 1px solid #444;
+    }
+
+    th {
+      background-color: #333;
+      color: #ffffff;
+    }
+
+    td {
+      background-color: #222;
+    }
+
+    td a {
+      color: #4CAF50;
+      text-decoration: none;
+    }
+
+    td a:hover {
+      text-decoration: underline;
+    }
+
+    /* Notification message */
+    .notification {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px;
+      margin-top: 10px;
+      display: none;
+      border-radius: 5px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Class Links</h1>
+  </header>
+
+  <main>
+    <h2>Email</h2>
+    <p>
+      <span id="email">rvit24bcs110.rvitm@rvei.edu.in</span>
+      <button class="copy-button" onclick="copyEmail()">Copy Email</button>
+    </p>
+
+    <!-- Notification message -->
+    <div id="notification" class="notification">Email copied!</div>
+
+    <h2>Class Links</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Class Name</th>
+          <th>Link</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Class 1: Physics</strong></td>
+          <td><a href="https://sites.google.com/rvei.edu.in/physics-cse-stream/home" target="_blank">Click here</a></td>
+        </tr>
+        <tr>
+          <td><strong>Class 2: C Programming</strong></td>
+          <td><a href="https://sites.google.com/rvei.edu.in/principles-of-c?usp=sharing" target="_blank">Click here</a></td>
+        </tr>
+        <tr>
+          <td><strong>Class 3: Innovative and Design Thinking</strong></td>
+          <td><a href="https://sites.google.com/rvei.edu.in/innovation-and-design-thinking?pli=1&authuser=3" target="_blank">Click here</a></td>
+        </tr>
+        <tr>
+          <td><strong>Class 4: Introduction to Electronics</strong></td>
+          <td><a href="https://sites.google.com/rvei.edu.in/22esc143243-ist-year/home" target="_blank">Click here</a></td>
+        </tr>
+        <tr>
+          <td><strong>Class 5: Introduction to Cyber Security</strong></td>
+          <td><a href="https://sites.google.com/rvei.edu.in/ics-22etc154-254/home?pli=1&authuser=6" target="_blank">Click here</a></td>
+        </tr>
+        <tr>
+          <td><strong>Class 6: Maths</strong></td>
+          <td><a href="https://sites.google.com/rvei.edu.in/22mats11/home" target="_blank">Click here</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+
+  <script>
+    // Function to copy the email to clipboard without showing a popup
+    function copyEmail() {
+      var email = document.getElementById("email").innerText;
+      var textArea = document.createElement("textarea");
+      textArea.value = email;
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textArea);
+
+      // Show the "Email copied!" message
+      var notification = document.getElementById("notification");
+      notification.style.display = "block"; // Show the notification
+
+      // Hide the notification after 2 seconds
+      setTimeout(function () {
+        notification.style.display = "none";
+      }, 2000);
+    }
+  </script>
+</body>
+
+</html>
