@@ -5,105 +5,204 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Class Links</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
+    :root {
+      --bg-color: #121212;
+      --text-color: #e0e0e0;
+      --card-bg: #1e1e1e;
+      --accent-color: #4CAF50;
+      --border-color: #333;
+    }
+
+    [data-theme="light"] {
+      --bg-color: #f5f5f5;
+      --text-color: #1e1e1e;
+      --card-bg: #ffffff;
+      --accent-color: #4CAF50;
+      --border-color: #ddd;
+    }
+
     body {
       font-family: Arial, sans-serif;
-      background-color: #121212;
-      color: #e0e0e0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
       margin: 0;
       padding: 0;
     }
 
     header {
-      background-color: #1e1e1e;
-      color: #ffffff;
-      padding: 10px 0;
+      position: sticky;
+      top: 0;
+      background-color: var(--card-bg);
+      padding: 15px 0;
       text-align: center;
-      border-bottom: 1px solid #444;
+      border-bottom: 1px solid var(--border-color);
+      z-index: 1000;
+    }
+
+    .theme-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 20px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--accent-color);
     }
 
     main {
+      padding: 30px 20px;
+    }
+
+    .link-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+
+    .card {
+      background-color: var(--card-bg);
       padding: 20px;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      flex: 1 1 280px;
+      min-width: 250px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: var(--accent-color);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card p,
+    .card a {
+      color: var(--text-color);
+    }
+
+    .card a {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: bold;
     }
 
     .copy-button {
-      background-color: #4CAF50;
+      background-color: var(--accent-color);
       color: white;
       border: none;
-      padding: 5px 10px;
-      cursor: pointer;
-      font-size: 14px;
+      padding: 5px 12px;
       border-radius: 5px;
+      font-size: 14px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
     }
 
-    .copy-button:hover {
-      background-color: #45a049;
+    .notification {
+      background-color: var(--accent-color);
+      color: white;
+      padding: 12px;
+      margin-top: 15px;
+      border-radius: 6px;
+      display: none;
+      animation: fadeInOut 2s ease-in-out;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    @keyframes fadeInOut {
+      0% {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      20% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      80% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(10px);
+      }
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 20px;
     }
 
     th,
     td {
-      padding: 10px;
+      padding: 12px 15px;
+      border: 1px solid var(--border-color);
       text-align: left;
-      border: 1px solid #444;
     }
 
     th {
-      background-color: #333;
-      color: #ffffff;
+      background-color: var(--card-bg);
+      color: var(--accent-color);
     }
 
     td {
-      background-color: #222;
+      background-color: var(--bg-color);
     }
 
     td a {
-      color: #4CAF50;
+      color: var(--accent-color);
       text-decoration: none;
     }
 
     td a:hover {
       text-decoration: underline;
     }
-
-    .notification {
-      background-color: #4CAF50;
-      color: white;
-      padding: 10px;
-      margin-top: 10px;
-      display: none;
-      border-radius: 5px;
-      text-align: center;
-    }
   </style>
 </head>
 
 <body>
   <header>
-    <h1>Class Links</h1>
+    <h1><i class="fas fa-link"></i> Class Links</h1>
+    <button class="theme-toggle" onclick="toggleTheme()">
+      <i id="theme-icon" class="fas fa-moon"></i>
+    </button>
   </header>
 
   <main>
-    <h2>Email</h2>
-    <p>
-      <span id="email">rvit24bcs110.rvitm@rvei.edu.in</span>
-      <button class="copy-button" onclick="copyEmail()">Copy Email</button>
-    </p>
+    <div class="link-row">
+      <div class="card">
+        <h3><i class="fas fa-envelope"></i> Email</h3>
+        <p id="email">rvit24bcs110.rvitm@rvei.edu.in</p>
+        <button class="copy-button" onclick="copyEmail()">
+          <i class="fas fa-copy"></i> Copy
+        </button>
+        <div id="notification" class="notification">Email copied to clipboard!</div>
+      </div>
 
-    <div id="notification" class="notification">Email copied!</div>
+      <div class="card">
+        <h3><i class="fas fa-calendar-alt"></i> Class Routine</h3>
+        <a href="https://drive.google.com/file/d/15ZFMdxoPo_GWOXa6B_Qz9laN38JYDRwP/view?usp=sharing" target="_blank">View</a>
+      </div>
 
-    <h2>Class Routine</h2>
-    <p>
-      <a href="https://drive.google.com/file/d/15ZFMdxoPo_GWOXa6B_Qz9laN38JYDRwP/view?usp=sharing" target="_blank"
-        style="color: #4CAF50; text-decoration: none;">
-        Click here to view the class routine
-      </a>
-    </p>
+      <div class="card">
+        <h3><i class="fas fa-calendar-check"></i> Calendar of Events</h3>
+        <a href="https://drive.google.com/file/d/1T9fYsfAacJKistT_-Uk7veD-Te74DP2n/view?usp=sharing" target="_blank">View</a>
+      </div>
+    </div>
 
     <h2>Class Links</h2>
     <table>
@@ -111,32 +210,39 @@
         <tr>
           <th>Class Name</th>
           <th>Link</th>
+          <th>Credits</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td><strong>Python</strong></td>
-          <td><a href="https://sites.google.com/rvei.edu.in/python-22plc15b-2sem?usp=sharing&pli=1&authuser=3" target="_blank">Click here</a></td>
-        </tr>
-        <tr>
           <td><strong>Maths</strong></td>
           <td><a href="https://sites.google.com/rvei.edu.in/bmats201/about-the-course/course-material" target="_blank">Click here</a></td>
-        </tr>
-        <tr>
-          <td><strong>CAED</strong></td>
-          <td><a href="https://sites.google.com/rvei.edu.in/engineering-graphics?pli=1&authuser=3" target="_blank">Click here</a></td>
+          <td>4</td>
         </tr>
         <tr>
           <td><strong>Chemistry</strong></td>
           <td><a href="https://sites.google.com/rvei.edu.in/bches102-202?pli=1&authuser=3" target="_blank">Click here</a></td>
+          <td>4</td>
         </tr>
         <tr>
           <td><strong>Electrical</strong></td>
           <td><a href="https://sites.google.com/rvei.edu.in/introduction-to-electrical-eng" target="_blank">Click here</a></td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td><strong>CAED</strong></td>
+          <td><a href="https://sites.google.com/rvei.edu.in/engineering-graphics?pli=1&authuser=3" target="_blank">Click here</a></td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td><strong>Python</strong></td>
+          <td><a href="https://sites.google.com/rvei.edu.in/python-22plc15b-2sem?usp=sharing&pli=1&authuser=3" target="_blank">Click here</a></td>
+          <td>3</td>
         </tr>
         <tr>
           <td><strong>SFH</strong></td>
           <td><a href="https://sites.google.com/rvei.edu.in/sfh-physics?pli=1&authuser=2" target="_blank">Click here</a></td>
+          <td>1</td>
         </tr>
       </tbody>
     </table>
@@ -145,18 +251,19 @@
   <script>
     function copyEmail() {
       var email = document.getElementById("email").innerText;
-      var textArea = document.createElement("textarea");
-      textArea.value = email;
-      document.body.appendChild(textArea);
-      textArea.select();
-      document.execCommand("copy");
-      document.body.removeChild(textArea);
+      navigator.clipboard.writeText(email).then(() => {
+        var notification = document.getElementById("notification");
+        notification.style.display = "block";
+        setTimeout(() => notification.style.display = "none", 2000);
+      });
+    }
 
-      var notification = document.getElementById("notification");
-      notification.style.display = "block";
-      setTimeout(function () {
-        notification.style.display = "none";
-      }, 2000);
+    function toggleTheme() {
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute("data-theme") || "dark";
+      const newTheme = currentTheme === "dark" ? "light" : "dark";
+      html.setAttribute("data-theme", newTheme);
+      document.getElementById("theme-icon").className = newTheme === "dark" ? "fas fa-moon" : "fas fa-sun";
     }
   </script>
 </body>
