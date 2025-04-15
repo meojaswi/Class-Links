@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Class Links</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
@@ -64,19 +64,17 @@
       margin-bottom: 30px;
     }
 
-    .card-link {
-      text-decoration: none;
-      flex: 1 1 280px;
-      min-width: 250px;
-    }
-
     .card {
       background-color: var(--card-bg);
       padding: 20px;
       border-radius: 12px;
       border: 1px solid var(--border-color);
+      width: 300px;
+      height: 220px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      height: 100%;
     }
 
     .card:hover {
@@ -101,6 +99,7 @@
       color: var(--accent-color);
       text-decoration: none;
       font-weight: bold;
+      align-self: flex-start;
     }
 
     .copy-button {
@@ -201,19 +200,19 @@
         <div id="notification" class="notification">Email copied to clipboard!</div>
       </div>
 
-      <a class="card-link" href="https://drive.google.com/file/d/15ZFMdxoPo_GWOXa6B_Qz9laN38JYDRwP/view?usp=sharing" target="_blank">
-        <div class="card">
-          <h3><i class="fas fa-calendar-alt"></i> Class Routine</h3>
-          <p>Click anywhere to open</p>
-        </div>
-      </a>
+      <div class="card">
+        <h3><i class="fas fa-calendar-alt"></i> Class Routine</h3>
+        <a href="https://drive.google.com/file/d/15ZFMdxoPo_GWOXa6B_Qz9laN38JYDRwP/view?usp=sharing" target="_blank">
+          <i class="fas fa-eye"></i> View
+        </a>
+      </div>
 
-      <a class="card-link" href="https://drive.google.com/file/d/1T9fYsfAacJKistT_-Uk7veD-Te74DP2n/view?usp=sharing" target="_blank">
-        <div class="card">
-          <h3><i class="fas fa-calendar-check"></i> Calendar of Events</h3>
-          <p>Click anywhere to open</p>
-        </div>
-      </a>
+      <div class="card">
+        <h3><i class="fas fa-calendar-check"></i> Calendar of Events</h3>
+        <a href="https://drive.google.com/file/d/1T9fYsfAacJKistT_-Uk7veD-Te74DP2n/view?usp=sharing" target="_blank">
+          <i class="fas fa-eye"></i> View
+        </a>
+      </div>
     </div>
 
     <h2>Class Links</h2>
