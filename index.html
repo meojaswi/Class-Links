@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Class Links</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
@@ -64,14 +64,19 @@
       margin-bottom: 30px;
     }
 
+    .card-link {
+      text-decoration: none;
+      flex: 1 1 280px;
+      min-width: 250px;
+    }
+
     .card {
       background-color: var(--card-bg);
       padding: 20px;
       border-radius: 12px;
       border: 1px solid var(--border-color);
-      flex: 1 1 280px;
-      min-width: 250px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      height: 100%;
     }
 
     .card:hover {
@@ -174,18 +179,6 @@
     td a:hover {
       text-decoration: underline;
     }
-
-    /* Make full card clickable */
-    .full-card-link {
-      text-decoration: none;
-      color: inherit;
-      display: block;
-    }
-
-    .full-card-link p {
-      color: var(--accent-color);
-      font-weight: bold;
-    }
   </style>
 </head>
 
@@ -208,9 +201,83 @@
         <div id="notification" class="notification">Email copied to clipboard!</div>
       </div>
 
-      <a href="https://drive.google.com/file/d/15ZFMdxoPo_GWOXa6B_Qz9laN38JYDRwP/view?usp=sharing" target="_blank" class="card full-card-link">
-        <h3><i class="fas fa-calendar-alt"></i> Class Routine</h3>
-        <p>View</p>
+      <a class="card-link" href="https://drive.google.com/file/d/15ZFMdxoPo_GWOXa6B_Qz9laN38JYDRwP/view?usp=sharing" target="_blank">
+        <div class="card">
+          <h3><i class="fas fa-calendar-alt"></i> Class Routine</h3>
+          <p>Click anywhere to open</p>
+        </div>
       </a>
 
-      <a href="https://drive.google.com/file/d/1T9fYsfAacJKistT_-Uk7veD-Te74DP2n/view?usp=sharing" target="_blank" class="card full-card-link">
+      <a class="card-link" href="https://drive.google.com/file/d/1T9fYsfAacJKistT_-Uk7veD-Te74DP2n/view?usp=sharing" target="_blank">
+        <div class="card">
+          <h3><i class="fas fa-calendar-check"></i> Calendar of Events</h3>
+          <p>Click anywhere to open</p>
+        </div>
+      </a>
+    </div>
+
+    <h2>Class Links</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Class Name</th>
+          <th>Link</th>
+          <th>Credits</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong><i class="fas fa-square-root-alt"></i> Maths</strong></td>
+          <td><a href="https://sites.google.com/rvei.edu.in/bmats201/about-the-course/course-material" target="_blank">Click here</a></td>
+          <td>4</td>
+        </tr>
+        <tr>
+          <td><strong><i class="fas fa-flask"></i> Chemistry</strong></td>
+          <td><a href="https://sites.google.com/rvei.edu.in/bches102-202?pli=1&authuser=3" target="_blank">Click here</a></td>
+          <td>4</td>
+        </tr>
+        <tr>
+          <td><strong><i class="fas fa-bolt"></i> Electrical</strong></td>
+          <td><a href="https://sites.google.com/rvei.edu.in/introduction-to-electrical-eng" target="_blank">Click here</a></td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td><strong><i class="fas fa-drafting-compass"></i> CAED</strong></td>
+          <td><a href="https://sites.google.com/rvei.edu.in/engineering-graphics?pli=1&authuser=3" target="_blank">Click here</a></td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td><strong><i class="fas fa-code"></i> Python</strong></td>
+          <td><a href="https://sites.google.com/rvei.edu.in/python-22plc15b-2sem?usp=sharing&pli=1&authuser=3" target="_blank">Click here</a></td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td><strong><i class="fas fa-atom"></i> SFH</strong></td>
+          <td><a href="https://sites.google.com/rvei.edu.in/sfh-physics?pli=1&authuser=2" target="_blank">Click here</a></td>
+          <td>1</td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+
+  <script>
+    function copyEmail() {
+      var email = document.getElementById("email").innerText;
+      navigator.clipboard.writeText(email).then(() => {
+        var notification = document.getElementById("notification");
+        notification.style.display = "block";
+        setTimeout(() => notification.style.display = "none", 2000);
+      });
+    }
+
+    function toggleTheme() {
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute("data-theme") || "dark";
+      const newTheme = currentTheme === "dark" ? "light" : "dark";
+      html.setAttribute("data-theme", newTheme);
+      document.getElementById("theme-icon").className = newTheme === "dark" ? "fas fa-moon" : "fas fa-sun";
+    }
+  </script>
+</body>
+
+</html>
