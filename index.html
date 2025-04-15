@@ -74,6 +74,7 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       cursor: pointer;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
@@ -87,7 +88,7 @@
     }
 
     .card h3 {
-      margin-top: 0;
+      margin: 0 0 10px 0;
       color: var(--accent-color);
       display: flex;
       align-items: center;
@@ -106,7 +107,7 @@
     }
 
     .card p {
-      margin-top: 10px;
+      margin: 0 0 10px 0;
       text-align: center;
       word-wrap: break-word;
     }
@@ -122,7 +123,7 @@
       display: flex;
       align-items: center;
       gap: 5px;
-      margin-top: 10px;
+      margin-top: auto;
     }
 
     .notification {
@@ -198,6 +199,24 @@
       background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Blank-routine.svg/256px-Blank-routine.svg.png') no-repeat center center;
       background-size: 30%;
     }
+    
+    /* Specific styles for email card */
+    .email-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+      padding: 15px;
+    }
+    
+    .email-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex-grow: 1;
+    }
   </style>
 </head>
 
@@ -212,12 +231,16 @@
   <main>
     <div class="link-row">
       <div class="card">
-        <h3><i class="fas fa-envelope"></i> Email</h3>
-        <p id="email" style="text-align: center;">rvit24bcs110.rvitm@rvei.edu.in</p>
-        <button class="copy-button" onclick="copyEmail()">
-          <i class="fas fa-copy"></i> Copy
-        </button>
-        <div id="notification" class="notification">Email copied to clipboard!</div>
+        <div class="email-card">
+          <div class="email-content">
+            <h3><i class="fas fa-envelope"></i> Email</h3>
+            <p id="email">rvit24bcs110.rvitm@rvei.edu.in</p>
+          </div>
+          <button class="copy-button" onclick="copyEmail()">
+            <i class="fas fa-copy"></i> Copy
+          </button>
+          <div id="notification" class="notification">Email copied to clipboard!</div>
+        </div>
       </div>
 
       <div class="card routine-btn" onclick="window.open('https://www.dropbox.com/scl/fi/4gvnvkf5pan0e0321v8br/SECCTION-B.pdf?rlkey=0bonifbflre1pu2nehfir6knz&st=sayg19in&dl=0', '_blank');">
