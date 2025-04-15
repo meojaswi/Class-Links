@@ -72,6 +72,13 @@
       flex: 1 1 280px;
       min-width: 250px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      height: 120px; /* Keep the button size consistent */
+      position: relative;
     }
 
     .card:hover {
@@ -174,6 +181,16 @@
     td a:hover {
       text-decoration: underline;
     }
+
+    .routine-btn {
+      background: url('https://upload.wikimedia.org/wikipedia/commons/a/ab/Calendar_icon_%28black%29.svg') no-repeat center center;
+      background-size: 30%;
+    }
+
+    .coe-btn {
+      background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Blank-routine.svg/256px-Blank-routine.svg.png') no-repeat center center;
+      background-size: 30%;
+    }
   </style>
 </head>
 
@@ -196,14 +213,12 @@
         <div id="notification" class="notification">Email copied to clipboard!</div>
       </div>
 
-      <div class="card">
+      <div class="card routine-btn" onclick="window.open('https://www.dropbox.com/scl/fi/4gvnvkf5pan0e0321v8br/SECCTION-B.pdf?rlkey=0bonifbflre1pu2nehfir6knz&st=sayg19in&dl=0', '_blank');">
         <h3><i class="fas fa-calendar-alt"></i> Class Routine</h3>
-        <a href="https://www.dropbox.com/scl/fi/4gvnvkf5pan0e0321v8br/SECCTION-B.pdf?rlkey=0bonifbflre1pu2nehfir6knz&st=sayg19in&dl=0" target="_blank">View</a>
       </div>
 
-      <div class="card">
+      <div class="card coe-btn" onclick="window.open('https://www.dropbox.com/scl/fi/jpy02ub4lc52m1iwcm3me/COE-II-Sem.pdf?rlkey=4k62807bxqf8sev2jdjuxnyfl&st=bny74u1m&dl=0', '_blank');">
         <h3><i class="fas fa-calendar-check"></i> Calendar of Events</h3>
-        <a href="https://www.dropbox.com/scl/fi/jpy02ub4lc52m1iwcm3me/COE-II-Sem.pdf?rlkey=4k62807bxqf8sev2jdjuxnyfl&st=bny74u1m&dl=0" target="_blank">View</a>
       </div>
     </div>
 
