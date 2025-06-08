@@ -139,25 +139,10 @@
     }
 
     @keyframes fadeInOut {
-      0% {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-
-      20% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      80% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      100% {
-        opacity: 0;
-        transform: translateY(10px);
-      }
+      0% { opacity: 0; transform: translateY(10px); }
+      20% { opacity: 1; transform: translateY(0); }
+      80% { opacity: 1; transform: translateY(0); }
+      100% { opacity: 0; transform: translateY(10px); }
     }
 
     table {
@@ -165,8 +150,7 @@
       border-collapse: collapse;
     }
 
-    th,
-    td {
+    th, td {
       padding: 12px 15px;
       border: 1px solid var(--border-color);
       text-align: left;
@@ -268,29 +252,29 @@
         </tr>
         <tr>
           <td><strong><i class="fas fa-flask"></i> Chemistry</strong></td>
-          <td><a href="https://sites.google.com/rvei.edu.in/bches102-202" target="_blank">Click here</a></td>
+          <td><a href="https://sites.google.com/rvei.edu.in/bches102-202?pli=1&authuser=3" target="_blank">Click here</a></td>
           <td>4</td>
         </tr>
-        <!-- Add more subjects as needed -->
+        <tr>
+          <td><strong><i class="fas fa-bolt"></i> Electrical</strong></td>
+          <td><a href="https://sites.google.com/rvei.edu.in/introduction-to-electrical-eng" target="_blank">Click here</a></td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td><strong><i class="fas fa-drafting-compass"></i> CAED</strong></td>
+          <td><a href="https://sites.google.com/rvei.edu.in/engineering-graphics?pli=1&authuser=3" target="_blank">Click here</a></td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td><strong><i class="fas fa-code"></i> Python</strong></td>
+          <td><a href="https://sites.google.com/rvei.edu.in/python-22plc15b-2sem?usp=sharing&pli=1&authuser=3" target="_blank">Click here</a></td>
+          <td>4</td>
+        </tr>
       </tbody>
     </table>
   </main>
 
   <script>
-    function toggleTheme() {
-      const root = document.documentElement;
-      const icon = document.getElementById("theme-icon");
-      if (root.getAttribute("data-theme") === "light") {
-        root.removeAttribute("data-theme");
-        icon.classList.remove("fa-sun");
-        icon.classList.add("fa-moon");
-      } else {
-        root.setAttribute("data-theme", "light");
-        icon.classList.remove("fa-moon");
-        icon.classList.add("fa-sun");
-      }
-    }
-
     function copyEmail() {
       const emailText = document.getElementById("email").innerText;
       navigator.clipboard.writeText(emailText).then(() => {
@@ -300,6 +284,21 @@
           notification.style.display = "none";
         }, 2000);
       });
+    }
+
+    function toggleTheme() {
+      const html = document.documentElement;
+      const icon = document.getElementById("theme-icon");
+
+      if (html.getAttribute("data-theme") === "light") {
+        html.removeAttribute("data-theme");
+        icon.classList.remove("fa-sun");
+        icon.classList.add("fa-moon");
+      } else {
+        html.setAttribute("data-theme", "light");
+        icon.classList.remove("fa-moon");
+        icon.classList.add("fa-sun");
+      }
     }
   </script>
 </body>
