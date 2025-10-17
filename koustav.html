@@ -1,303 +1,345 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Class Links</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
-    :root {
-      --bg-color: #121212;
-      --text-color: #e0e0e0;
-      --card-bg: #1e1e1e;
-      --accent-color: #4CAF50;
-      --border-color: #333;
-    }
-
-    [data-theme="light"] {
-      --bg-color: #f5f5f5;
-      --text-color: #1e1e1e;
-      --card-bg: #ffffff;
-      --accent-color: #4CAF50;
-      --border-color: #ddd;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      margin: 0;
-      padding: 0;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      background-color: var(--card-bg);
-      padding: 15px 0;
-      text-align: center;
-      border-bottom: 1px solid var(--border-color);
-      z-index: 1000;
-    }
-
-    .theme-toggle {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 20px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      color: var(--accent-color);
-    }
-
-    main {
-      padding: 30px 20px;
-    }
-
-    .link-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-      margin-bottom: 30px;
-    }
-
-    .card {
-      background-color: var(--card-bg);
-      padding: 20px;
-      border-radius: 12px;
-      border: 1px solid var(--border-color);
-      flex: 1 1 280px;
-      min-width: 250px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      height: 120px;
-      position: relative;
-    }
-
-    .card:hover {
-      transform: scale(1.03);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
-    }
-
-    .card h3 {
-      margin: 0 0 10px 0;
-      color: var(--accent-color);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .card p,
-    .card a {
-      color: var(--text-color);
-    }
-
-    .card a {
-      color: var(--accent-color);
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .card p {
-      margin: 0 0 10px 0;
-      text-align: center;
-      word-wrap: break-word;
-    }
-
-    .copy-button {
-      background-color: var(--accent-color);
-      color: white;
-      border: none;
-      padding: 5px 12px;
-      border-radius: 5px;
-      font-size: 14px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      margin-top: auto;
-    }
-
-    .notification {
-      background-color: var(--accent-color);
-      color: white;
-      padding: 12px;
-      margin-top: 15px;
-      border-radius: 6px;
-      display: none;
-      animation: fadeInOut 2s ease-in-out;
-      text-align: center;
-      font-size: 14px;
-    }
-
-    @keyframes fadeInOut {
-      0% {opacity: 0; transform: translateY(10px);}
-      20% {opacity: 1; transform: translateY(0);}
-      80% {opacity: 1; transform: translateY(0);}
-      100% {opacity: 0; transform: translateY(10px);}
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    th,
-    td {
-      padding: 12px 15px;
-      border: 1px solid var(--border-color);
-      text-align: left;
-    }
-
-    th {
-      background-color: var(--card-bg);
-      color: var(--accent-color);
-    }
-
-    td {
-      background-color: var(--bg-color);
-    }
-
-    td a {
-      color: var(--accent-color);
-      text-decoration: none;
-    }
-
-    td a:hover {
-      text-decoration: underline;
-    }
-
-    .routine-btn {
-      background: url('https://upload.wikimedia.org/wikipedia/commons/a/ab/Calendar_icon_%28black%29.svg') no-repeat center center;
-      background-size: 30%;
-    }
-
-    .coe-btn {
-      background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Blank-routine.svg/256px-Blank-routine.svg.png') no-repeat center center;
-      background-size: 30%;
-    }
-
-    .email-card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
-      height: 100%;
-      padding: 15px;
-    }
-
-    .email-content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      flex-grow: 1;
-    }
-  </style>
-</head>
-
-<body>
-  <header>
-    <h1><i class="fas fa-link"></i> Class Links</h1>
-    <button class="theme-toggle" onclick="toggleTheme()">
-      <i id="theme-icon" class="fas fa-moon"></i>
-    </button>
-  </header>
-
-  <main>
-    <div class="link-row">
-      <div class="card">
-        <div class="email-card">
-          <div class="email-content">
-            <h3><i class="fas fa-envelope"></i> Email</h3>
-            <p id="email">rvit24bis100.rvitm@rvei.edu.in</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class Links</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --bg-color: #121212;
+        --text-color: #e0e0e0;
+        --card-bg: #1e1e1e;
+        --accent-color: #4caf50;
+        --border-color: #333;
+      }
+      [data-theme="light"] {
+        --bg-color: #f5f5f5;
+        --text-color: #1e1e1e;
+        --card-bg: #ffffff;
+        --accent-color: #4caf50;
+        --border-color: #ddd;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        margin: 0;
+        padding: 0;
+      }
+      header {
+        position: sticky;
+        top: 0;
+        background-color: var(--card-bg);
+        padding: 15px 0;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color);
+        z-index: 1000;
+      }
+      .theme-toggle {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 20px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--accent-color);
+      }
+      main {
+        padding: 30px 20px;
+      }
+      .link-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        margin-bottom: 30px;
+      }
+      .card {
+        background-color: var(--card-bg);
+        padding: 20px;
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+        flex: 1 1 280px;
+        min-width: 250px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: 120px;
+        position: relative;
+      }
+      .card:hover {
+        transform: scale(1.03);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+      }
+      .card h3 {
+        margin: 0 0 10px 0;
+        color: var(--accent-color);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .card p,
+      .card a {
+        color: var(--text-color);
+      }
+      .card a {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: bold;
+      }
+      .card p {
+        margin: 0 0 10px 0;
+        text-align: center;
+        word-wrap: break-word;
+      }
+      .copy-button {
+        background-color: var(--accent-color);
+        color: white;
+        border: none;
+        padding: 5px 12px;
+        border-radius: 5px;
+        font-size: 14px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        margin-top: auto;
+      }
+      .notification {
+        background-color: var(--accent-color);
+        color: white;
+        padding: 12px;
+        margin-top: 15px;
+        border-radius: 6px;
+        display: none;
+        animation: fadeInOut 2s ease-in-out;
+        text-align: center;
+        font-size: 14px;
+      }
+      @keyframes fadeInOut {
+        0% {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        20% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        80% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        padding: 12px 15px;
+        border: 1px solid var(--border-color);
+        text-align: left;
+      }
+      th {
+        background-color: var(--card-bg);
+        color: var(--accent-color);
+      }
+      td {
+        background-color: var(--bg-color);
+      }
+      td a {
+        color: var(--accent-color);
+        text-decoration: none;
+      }
+      td a:hover {
+        text-decoration: underline;
+      }
+      .routine-btn {
+        background: url("https://upload.wikimedia.org/wikipedia/commons/a/ab/Calendar_icon_%28black%29.svg")
+          no-repeat center center;
+        background-size: 30%;
+      }
+      .coe-btn {
+        background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Blank-routine.svg/256px-Blank-routine.svg.png")
+          no-repeat center center;
+        background-size: 30%;
+      }
+      .email-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        height: 100%;
+        padding: 15px;
+      }
+      .email-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        flex-grow: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1><i class="fas fa-link"></i> Class Links</h1>
+      <button class="theme-toggle" onclick="toggleTheme()">
+        <i id="theme-icon" class="fas fa-moon"></i>
+      </button>
+    </header>
+    <main>
+      <div class="link-row">
+        <div class="card">
+          <div class="email-card">
+            <div class="email-content">
+              <h3><i class="fas fa-envelope"></i> Email</h3>
+              <p id="email">rvit24bis100.rvitm@rvei.edu.in</p>
+            </div>
+            <button class="copy-button" onclick="copyEmail()">
+              <i class="fas fa-copy"></i> Copy
+            </button>
+            <div id="notification" class="notification">
+              Email copied to clipboard!
+            </div>
           </div>
-          <button class="copy-button" onclick="copyEmail()">
-            <i class="fas fa-copy"></i> Copy
-          </button>
-          <div id="notification" class="notification">Email copied to clipboard!</div>
+        </div>
+        <div
+          class="card routine-btn"
+          #onclick="window.open('https://raw.githubusercontent.com/Jyoti7278/Class-links/main/Time%20Table_page-0001.jpg', '_blank');"
+        >
+          <h3><i class="fas fa-calendar-alt"></i> Class Routine</h3>
+        </div>
+        <div
+          class="card coe-btn"
+          onclick="window.open('https://www.amazon.com/photos/shared/UwHv_7cZQFKzszLK3MGk5A.Tc71VtQXA-jgn-q3fbKium/gallery/ATOshlckSd6ZRq1YnwZkqg', '_blank');"
+        >
+          <h3><i class="fas fa-calendar-check"></i> Calendar of Events</h3>
         </div>
       </div>
-
-      <div class="card routine-btn" onclick="window.open('https://www.dropbox.com/scl/fi/icqk5e8i4heh0ifhoi9w5/SECCTION-E.pdf?rlkey=pmc7jtdbv0o8blrvraau9eo2k&st=p11oe36o&dl=0', '_blank');">
-        <h3><i class="fas fa-calendar-alt"></i> Class Routine</h3>
-      </div>
-
-      <div class="card coe-btn" onclick="window.open('https://www.dropbox.com/scl/fi/njht3a6k97mdi51twa422/COE-II-Sem.jpg?rlkey=4h47g4wvzrfkk5t3j11jp5eye&st=ipvbii8j&dl=0', '_blank');">
-        <h3><i class="fas fa-calendar-check"></i> Calendar of Events</h3>
-      </div>
-    </div>
-
-    <h2>Class Links</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Class Name</th>
-          <th>Link</th>
-          <th>Credits</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong><i class="fas fa-square-root-alt"></i> Maths</strong></td>
-          <td><a href="https://sites.google.com/rvei.edu.in/22mats11?usp=sharing" target="_blank">Click here</a></td>
-          <td>4</td>
-        </tr>
-        <tr>
-          <td><strong><i class="fas fa-atom"></i> Physics</strong></td>
-          <td><a href="https://sites.google.com/rvei.edu.in/physics-cse-stream" target="_blank">Click here</a></td>
-          <td>4</td>
-        </tr>
-        <tr>
-          <td><strong><i class="fas fa-microchip"></i> ELN</strong></td>
-          <td><a href="https://sites.google.com/rvei.edu.in/22esc143243-ist-year/home" target="_blank">Click here</a></td>
-          <td>3</td>
-        </tr>
-        <tr>
-          <td><strong><i class="fas fa-wifi"></i> IoT</strong></td>
-          <td><a href="https://sites.google.com/rvei.edu.in/bpops103/lecture-ppts?authuser=4" target="_blank">Click here</a></td>
-          <td>3</td>
-        </tr>
-        <tr>
-          <td><strong><i class="fas fa-laptop-code"></i> POP (C Programming)</strong></td>
-          <td><a href="https://sites.google.com/rvei.edu.in/principles-of-c?usp=sharing" target="_blank">Click here</a></td>
-          <td>3</td>
-        </tr>
-        <tr>
-          <td><strong><i class="fas fa-lightbulb"></i> IDT</strong></td>
-          <td><a href="https://sites.google.com/rvei.edu.in/innovation-and-design-thinking" target="_blank">Click here</a></td>
-          <td>1</td>
-        </tr>
-      </tbody>
-    </table>
-  </main>
-
-  <script>
-    function copyEmail() {
-      var email = document.getElementById("email").innerText;
-      navigator.clipboard.writeText(email).then(() => {
-        var notification = document.getElementById("notification");
-        notification.style.display = "block";
-        setTimeout(() => notification.style.display = "none", 2000);
-      });
-    }
-
-    function toggleTheme() {
-      const html = document.documentElement;
-      const currentTheme = html.getAttribute("data-theme") || "dark";
-      const newTheme = currentTheme === "dark" ? "light" : "dark";
-      html.setAttribute("data-theme", newTheme);
-      document.getElementById("theme-icon").className = newTheme === "dark" ? "fas fa-moon" : "fas fa-sun";
-    }
-  </script>
-</body>
-
+      <h2>Class Links</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Class Name</th>
+            <th>Link</th>
+            <th>Credits</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <strong><i class="fas fa-square-root-alt"></i> Math</strong>
+            </td>
+            <td>
+              <a
+                href="https://sites.google.com/rvei.edu.in/bcs301/about-the-course/course-information"
+                target="_blank"
+                >Click here</a
+              >
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>
+              <strong><i class="fas fa-cube"></i> OOPS with Java (OOPS)</strong>
+            </td>
+            <td>
+              <a
+                href="https://sites.google.com/rvei.edu.in/bcs306aoopswithjava/course-notes"
+                target="_blank"
+                >Click here</a
+              >
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>
+              <strong
+                ><i class="fas fa-desktop"></i> Operating System (OS)</strong
+              >
+            </td>
+            <td>
+              <a
+                href="https://sites.google.com/rvei.edu.in/3rdsemcsebcs303-operatingsyste?pli=1&authuser=2"
+                target="_blank"
+                >Click here</a
+              >
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>
+              <strong
+                ><i class="fas fa-database"></i> Data Structures and
+                Applications (DSA)</strong
+              >
+            </td>
+            <td>
+              <a
+                href="https://sites.google.com/rvei.edu.in/cse-dsa-22-scheme-bcs304?pli=1&authuser=3"
+                target="_blank"
+                >Click here</a
+              >
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>
+              <strong
+                ><i class="fas fa-microchip"></i> Digital Design and Computer
+                Organisation (DDCO)</strong
+              >
+            </td>
+            <td>
+              <a
+                href="https://sites.google.com/rvei.edu.in/3rd-semester-ddco?pli=1&authuser=3"
+                target="_blank"
+                >Click here</a
+              >
+            </td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+    <script>
+      function copyEmail() {
+        const emailText = document.getElementById("email").innerText;
+        navigator.clipboard.writeText(emailText).then(() => {
+          const notification = document.getElementById("notification");
+          notification.style.display = "block";
+          setTimeout(() => {
+            notification.style.display = "none";
+          }, 2000);
+        });
+      }
+      function toggleTheme() {
+        const html = document.documentElement;
+        const icon = document.getElementById("theme-icon");
+        if (html.getAttribute("data-theme") === "light") {
+          html.removeAttribute("data-theme");
+          icon.classList.remove("fa-sun");
+          icon.classList.add("fa-moon");
+        } else {
+          html.setAttribute("data-theme", "light");
+          icon.classList.remove("fa-moon");
+          icon.classList.add("fa-sun");
+        }
+      }
+    </script>
+  </body>
 </html>
