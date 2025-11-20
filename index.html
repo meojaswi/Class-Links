@@ -121,6 +121,9 @@
       animation: fadeInOut 2s ease-in-out;
       text-align: center;
       font-size: 14px;
+      position: absolute;
+      bottom: -50px;
+      z-index: 10;
     }
     @keyframes fadeInOut {
       0% { opacity: 0; transform: translateY(10px); }
@@ -143,6 +146,7 @@
     }
     td {
       background-color: var(--bg-color);
+      color: var(--text-color); /* Fixed: ensured text color applies to table */
     }
     td a {
       color: var(--accent-color);
@@ -166,6 +170,7 @@
       justify-content: space-between;
       height: 100%;
       padding: 15px;
+      width: 100%;
     }
     .email-content {
       display: flex;
@@ -185,6 +190,7 @@
   </header>
   <main>
     <div class="link-row">
+      
       <div class="card">
         <div class="email-card">
           <div class="email-content">
@@ -194,16 +200,24 @@
           <button class="copy-button" onclick="copyEmail()">
             <i class="fas fa-copy"></i> Copy
           </button>
-          <div id="notification" class="notification">Email copied to clipboard!</div>
+          <div id="notification" class="notification">Email copied!</div>
         </div>
       </div>
+
+      <div class="card" onclick="window.open('https://drive.google.com/drive/folders/1bx0UET7AKIs7TEoy8mnuv5axsRkng2V7?usp=sharing', '_blank');">
+        <h3><i class="fas fa-flask"></i> Lab Manuals</h3>
+      </div>
+
       <div class="card routine-btn" onclick="window.open('https://raw.githubusercontent.com/Jyoti7278/Class-links/main/Time%20Table_page-0001.jpg', '_blank');">
         <h3><i class="fas fa-calendar-alt"></i> Class Routine</h3>
       </div>
+
       <div class="card coe-btn" onclick="window.open('https://www.amazon.com/photos/shared/UwHv_7cZQFKzszLK3MGk5A.Tc71VtQXA-jgn-q3fbKium/gallery/ATOshlckSd6ZRq1YnwZkqg', '_blank');">
         <h3><i class="fas fa-calendar-check"></i> Calendar of Events</h3>
       </div>
+
     </div>
+
     <h2>Class Links</h2>
     <table>
       <thead>
@@ -269,6 +283,3 @@
   </script>
 </body>
 </html>
-
-
-
