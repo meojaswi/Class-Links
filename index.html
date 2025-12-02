@@ -3,7 +3,6 @@
 <head>
   <head>
   <link rel="icon" type="image/png" href="favicon.png">
-  
   <link rel="apple-touch-icon" href="favicon.png">
 
   <title>Class Links Repository</title>
@@ -27,6 +26,40 @@
       --accent-color: #4CAF50;
       --border-color: #ddd;
     }
+    table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  padding: 12px 15px;
+  border: 1px solid var(--border-color);
+  text-align: left;
+}
+
+th {
+  background-color: var(--card-bg);
+  color: var(--accent-color);
+  font-size: 18px;
+}
+
+td {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-size: 16px;
+}
+
+td a {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+td a:hover {
+  text-decoration: underline;
+}
+
     body {
       font-family: Arial, sans-serif;
       background-color: var(--bg-color);
@@ -59,59 +92,52 @@
     .link-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 15px;
       justify-content: center;
       margin-bottom: 30px;
     }
     .card {
       background-color: var(--card-bg);
-      padding: 20px;
+      padding: 15px;
       border-radius: 12px;
       border: 1px solid var(--border-color);
-      flex: 1 1 280px;
-      min-width: 250px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      flex: 1 1 220px;
+      min-width: 200px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
       cursor: pointer;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      height: 120px;
+      height: 90px; /* SMALLER SIZE */
       position: relative;
     }
     .card:hover {
       transform: scale(1.03);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
     }
     .card h3 {
-      margin: 0 0 10px 0;
+      margin: 0 0 5px 0;
       color: var(--accent-color);
       display: flex;
       align-items: center;
       gap: 8px;
-    }
-    .card p,
-    .card a {
-      color: var(--text-color);
-    }
-    .card a {
-      color: var(--accent-color);
-      text-decoration: none;
-      font-weight: bold;
+      font-size: 18px;
     }
     .card p {
-      margin: 0 0 10px 0;
+      margin: 0;
       text-align: center;
       word-wrap: break-word;
+      font-size: 14px;
     }
     .copy-button {
       background-color: var(--accent-color);
       color: white;
       border: none;
-      padding: 5px 12px;
+      padding: 4px 10px;
       border-radius: 5px;
-      font-size: 14px;
+      font-size: 12px;
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -121,15 +147,15 @@
     .notification {
       background-color: var(--accent-color);
       color: white;
-      padding: 12px;
+      padding: 10px;
       margin-top: 15px;
       border-radius: 6px;
       display: none;
       animation: fadeInOut 2s ease-in-out;
       text-align: center;
-      font-size: 14px;
+      font-size: 12px;
       position: absolute;
-      bottom: -50px;
+      bottom: -40px;
       z-index: 10;
     }
     @keyframes fadeInOut {
@@ -138,54 +164,14 @@
       80% { opacity: 1; transform: translateY(0); }
       100% { opacity: 0; transform: translateY(10px); }
     }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-    th, td {
-      padding: 12px 15px;
-      border: 1px solid var(--border-color);
-      text-align: left;
-    }
-    th {
-      background-color: var(--card-bg);
-      color: var(--accent-color);
-    }
-    td {
-      background-color: var(--bg-color);
-      color: var(--text-color); /* Fixed: ensured text color applies to table */
-    }
-    td a {
-      color: var(--accent-color);
-      text-decoration: none;
-    }
-    td a:hover {
-      text-decoration: underline;
-    }
+
     .routine-btn {
-      background: url('https://upload.wikimedia.org/wikipedia/commons/a/ab/Calendar_icon_%28black%29.svg') no-repeat center center;
-      background-size: 30%;
+      background-size: 23%;
     }
     .coe-btn {
-      background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Blank-routine.svg/256px-Blank-routine.svg.png') no-repeat center center;
-      background-size: 30%;
+      background-size: 23%;
     }
-    .email-card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
-      height: 100%;
-      padding: 15px;
-      width: 100%;
-    }
-    .email-content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      flex-grow: 1;
-    }
+
   </style>
 </head>
 <body>
@@ -196,31 +182,37 @@
     </button>
   </header>
   <main>
+
     <div class="link-row">
-      
+
+      <!-- EMAIL -->
       <div class="card">
-        <div class="email-card">
-          <div class="email-content">
-            <h3><i class="fas fa-envelope"></i> Email</h3>
-            <p id="email">rvit24bcs110.rvitm@rvei.edu.in</p>
-          </div>
-          <button class="copy-button" onclick="copyEmail()">
-            <i class="fas fa-copy"></i> Copy
-          </button>
-          <div id="notification" class="notification">Email copied!</div>
-        </div>
+        <h3><i class="fas fa-envelope"></i> Email</h3>
+        <p id="email">rvit24bcs110.rvitm@rvei.edu.in</p>
+        <button class="copy-button" onclick="copyEmail()">
+          <i class="fas fa-copy"></i> Copy
+        </button>
+        <div id="notification" class="notification">Email copied!</div>
       </div>
 
+      <!-- LAB MANUALS -->
       <div class="card" onclick="window.open('https://drive.google.com/drive/folders/1bx0UET7AKIs7TEoy8mnuv5axsRkng2V7?usp=sharing', '_blank');">
         <h3><i class="fas fa-flask"></i> Lab Manuals</h3>
       </div>
 
-      <div class="card routine-btn" onclick="window.open('https://raw.githubusercontent.com/Jyoti7278/Class-links/main/Time%20Table_page-0001.jpg', '_blank');">
+      <!-- CLASS ROUTINE -->
+      <div class="card" onclick="window.open('https://raw.githubusercontent.com/Jyoti7278/Class-links/main/Time%20Table_page-0001.jpg', '_blank');">
         <h3><i class="fas fa-calendar-alt"></i> Class Routine</h3>
       </div>
 
-      <div class="card coe-btn" onclick="window.open('https://raw.githubusercontent.com/meojaswi/Class-Links/refs/heads/main/COE-III%20Sem-AY%202025-26.jpg', '_blank');">
-        <h3><i class="fas fa-calendar-check"></i> Calendar of Events</h3>
+      <!-- COE -->
+      <div class="card" onclick="window.open('https://raw.githubusercontent.com/meojaswi/Class-Links/refs/heads/main/COE-III%20Sem-AY%202025-26.jpg', '_blank');">
+        <h3><i class="fas fa-calendar-check"></i> COE</h3>
+      </div>
+
+      <!-- ⭐ IMPORTANT LINKS -->
+      <div class="card" onclick="window.open('https://docs.google.com/spreadsheets/d/11waWZjIycdPteJiMFMX3odc23pzdLGg13NxLmNV25Bg/edit?usp=sharing', '_blank');">
+        <h3><i class="fas fa-star"></i> Important Links</h3>
       </div>
 
     </div>
@@ -241,28 +233,29 @@
           <td></td>
         </tr>
         <tr>
-          <td><strong><i class="fas fa-cube"></i> OOPS with Java (OOPS)</strong></td>
+          <td><strong><i class="fas fa-cube"></i> OOPS with Java</strong></td>
           <td><a href="https://sites.google.com/rvei.edu.in/3rd-cse-object-oriented-progra/home" target="_blank">Click here</a></td>
           <td></td>
         </tr>
         <tr>
-          <td><strong><i class="fas fa-desktop"></i> Operating System (OS)</strong></td>
+          <td><strong><i class="fas fa-desktop"></i> Operating System</strong></td>
           <td><a href="https://sites.google.com/rvei.edu.in/3rdsemcsebcs303-operatingsyste?pli=1&authuser=2" target="_blank">Click here</a></td>
           <td></td>
         </tr>
         <tr>
-          <td><strong><i class="fas fa-database"></i> Data Structures and Applications (DSA)</strong></td>
+          <td><strong><i class="fas fa-database"></i> DSA</strong></td>
           <td><a href="https://sites.google.com/rvei.edu.in/ds-and-applications-bcs304?usp=sharing" target="_blank">Click here</a></td>
           <td></td>
         </tr>
         <tr>
-          <td><strong><i class="fas fa-microchip"></i> Digital Design and Computer Organisation (DDCO)</strong></td>
+          <td><strong><i class="fas fa-microchip"></i> DDCO</strong></td>
           <td><a href="https://sites.google.com/rvei.edu.in/3rd-semester-ddco?usp=sharing" target="_blank">Click here</a></td>
           <td></td>
         </tr>
       </tbody>
     </table>
   </main>
+
   <script>
     function copyEmail() {
       const emailText = document.getElementById("email").innerText;
@@ -288,8 +281,6 @@
       }
     }
   </script>
+
 </body>
 </html>
-
-
-
