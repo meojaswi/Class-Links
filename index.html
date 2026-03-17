@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Class Links</title>
+  <title>Class Links — Sem 4</title>
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
@@ -210,7 +210,7 @@
       <div class="card email-card">
         <div class="card-icon"><i class="fas fa-envelope"></i></div>
         <h3>Student Email</h3>
-        <div class="email-display" id="email">rvit24bcs110.rvitm@rvei.edu.in</div>
+        <div class="email-display" id="email"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="9fede9f6ebadabfdfcecaeaeafb1ede9f6ebf2dfede9faf6b1fafbeab1f6f1">[email&#160;protected]</a></div>
         <button class="copy-btn" onclick="copyEmail(); event.stopPropagation();">
           <i class="fas fa-copy"></i> COPY
         </button>
@@ -223,7 +223,7 @@
         <h3>Class Routine</h3>
       </div>
 
-      <div class="card" onclick="window.open('https://raw.githubusercontent.com/meojaswi/Class-Links/refs/heads/main/COE-III%20Sem-AY%202025-26.jpg','_blank')">
+      <div class="card" onclick="window.open('https://raw.githubusercontent.com/meojaswi/Class-Links/main/CoE-IV%20Sem-AY%202025-26.jpg','_blank')">
         <div class="card-icon" style="color:var(--magenta);background:linear-gradient(135deg,rgba(255,0,200,0.1),rgba(255,0,200,0.05));border-color:rgba(255,0,200,0.2)">
           <i class="fas fa-calendar-check"></i>
         </div>
@@ -337,15 +337,7 @@
 
   <div class="toast" id="toast">✓ EMAIL COPIED</div>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     function copyEmail() {
       const email = document.getElementById('email').innerText;
-      navigator.clipboard.writeText(email).then(() => {
-        const t = document.getElementById('toast');
-        t.classList.add('show');
-        setTimeout(() => t.classList.remove('show'), 2200);
-      });
-    }
-  </script>
-</body>
-</html>
+    
