@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Class Links — Sem 4</title>
+  <title>Class Links</title>
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
@@ -210,7 +210,8 @@
       <div class="card email-card">
         <div class="card-icon"><i class="fas fa-envelope"></i></div>
         <h3>Student Email</h3>
-        <div class="email-display" id="email"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="9fede9f6ebadabfdfcecaeaeafb1ede9f6ebf2dfede9faf6b1fafbeab1f6f1">[email&#160;protected]</a></div>
+        <!-- Replace the email below with your actual email address -->
+        <div class="email-display" id="email">youremail@rvei.edu.in</div>
         <button class="copy-btn" onclick="copyEmail(); event.stopPropagation();">
           <i class="fas fa-copy"></i> COPY
         </button>
@@ -337,7 +338,33 @@
 
   <div class="toast" id="toast">✓ EMAIL COPIED</div>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script>
     function copyEmail() {
-      const email = document.getElementById('email').innerText;
-    
+      const email = document.getElementById('email').innerText.trim();
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(email).then(showToast).catch(fallbackCopy);
+      } else {
+        fallbackCopy();
+      }
+
+      function fallbackCopy() {
+        const ta = document.createElement('textarea');
+        ta.value = email;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        showToast();
+      }
+
+      function showToast() {
+        const toast = document.getElementById('toast');
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2500);
+      }
+    }
+  </script>
+</body>
+</html>
